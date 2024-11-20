@@ -1,0 +1,185 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "meetingId",
+        "type": "uint256"
+      }
+    ],
+    "name": "MeetingCancelled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "meetingId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "organizer",
+        "type": "address"
+      }
+    ],
+    "name": "MeetingCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "meetingId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newDate",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newStartTime",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newEndTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "MeetingRescheduled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "meetingId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "participant",
+        "type": "address"
+      }
+    ],
+    "name": "ParticipantAdded",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "meetingId", "type": "uint256" },
+      {
+        "internalType": "address[]",
+        "name": "newParticipants",
+        "type": "address[]"
+      }
+    ],
+    "name": "addParticipants",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "meetingId", "type": "uint256" }
+    ],
+    "name": "cancelMeeting",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "addr", "type": "address" },
+      { "internalType": "uint256", "name": "date", "type": "uint256" },
+      { "internalType": "uint256", "name": "startTime", "type": "uint256" },
+      { "internalType": "uint256", "name": "endTime", "type": "uint256" }
+    ],
+    "name": "checkAvailability",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "participants",
+        "type": "address[]"
+      },
+      { "internalType": "uint256", "name": "date", "type": "uint256" },
+      { "internalType": "uint256", "name": "startTime", "type": "uint256" },
+      { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+      { "internalType": "string", "name": "agenda", "type": "string" },
+      { "internalType": "string", "name": "meetLink", "type": "string" }
+    ],
+    "name": "createMeeting",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "addr", "type": "address" }
+    ],
+    "name": "getMeetingsByAddress",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "organizer", "type": "address" },
+          {
+            "internalType": "address[]",
+            "name": "participants",
+            "type": "address[]"
+          },
+          { "internalType": "uint256", "name": "date", "type": "uint256" },
+          { "internalType": "uint256", "name": "startTime", "type": "uint256" },
+          { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+          { "internalType": "string", "name": "agenda", "type": "string" },
+          { "internalType": "string", "name": "meetLink", "type": "string" },
+          { "internalType": "bool", "name": "isCancelled", "type": "bool" }
+        ],
+        "internalType": "struct Calender.Meeting[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "meetingIdCounter",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "meetingId", "type": "uint256" },
+      { "internalType": "uint256", "name": "newDate", "type": "uint256" },
+      { "internalType": "uint256", "name": "newStartTime", "type": "uint256" },
+      { "internalType": "uint256", "name": "newEndTime", "type": "uint256" }
+    ],
+    "name": "rescheduleMeeting",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

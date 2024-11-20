@@ -1,0 +1,36 @@
+type MeetingCancelled @entity(immutable: true) {
+  id: Bytes!
+  meetingId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MeetingCreated @entity(immutable: true) {
+  id: Bytes!
+  meetingId: BigInt! # uint256
+  organizer: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MeetingRescheduled @entity(immutable: true) {
+  id: Bytes!
+  meetingId: BigInt! # uint256
+  newDate: BigInt! # uint256
+  newStartTime: BigInt! # uint256
+  newEndTime: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ParticipantAdded @entity(immutable: true) {
+  id: Bytes!
+  meetingId: BigInt! # uint256
+  participant: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

@@ -1,0 +1,35 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Calender
+    network: base-sepolia
+    source:
+      address: "0x16CEb1b26eC18522D461B88596aECca201144e0C"
+      abi: Calender
+      startBlock: 18039887
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - MeetingCancelled
+        - MeetingCreated
+        - MeetingRescheduled
+        - ParticipantAdded
+      abis:
+        - name: Calender
+          file: ./abis/Calender.json
+      eventHandlers:
+        - event: MeetingCancelled(uint256)
+          handler: handleMeetingCancelled
+        - event: MeetingCreated(uint256,indexed address)
+          handler: handleMeetingCreated
+        - event: MeetingRescheduled(uint256,uint256,uint256,uint256)
+          handler: handleMeetingRescheduled
+        - event: ParticipantAdded(uint256,address)
+          handler: handleParticipantAdded
+      file: ./src/calender.ts
