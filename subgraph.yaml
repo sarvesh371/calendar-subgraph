@@ -8,9 +8,9 @@ dataSources:
     name: Calender
     network: base-sepolia
     source:
-      address: "0x16CEb1b26eC18522D461B88596aECca201144e0C"
+      address: "0xC2dE2fcD871eacb8147A1FB4a6036726b1e094f0"
       abi: Calender
-      startBlock: 18039887
+      startBlock: 18239770
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -26,7 +26,7 @@ dataSources:
       eventHandlers:
         - event: MeetingCancelled(uint256)
           handler: handleMeetingCancelled
-        - event: MeetingCreated(uint256,indexed address)
+        - event: MeetingCreated(uint256,indexed address,uint256,uint256,uint256,string,string)
           handler: handleMeetingCreated
         - event: MeetingRescheduled(uint256,uint256,uint256,uint256)
           handler: handleMeetingRescheduled

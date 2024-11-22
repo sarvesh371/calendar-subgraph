@@ -1,35 +1,14 @@
-type MeetingCancelled @entity(immutable: true) {
-  id: Bytes!
-  meetingId: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type MeetingCreated @entity(immutable: true) {
+type Meeting @entity {
   id: Bytes!
   meetingId: BigInt! # uint256
   organizer: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type MeetingRescheduled @entity(immutable: true) {
-  id: Bytes!
-  meetingId: BigInt! # uint256
-  newDate: BigInt! # uint256
-  newStartTime: BigInt! # uint256
-  newEndTime: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type ParticipantAdded @entity(immutable: true) {
-  id: Bytes!
-  meetingId: BigInt! # uint256
-  participant: Bytes! # address
+  date: BigInt! # UNIX timestamp
+  startTime: BigInt! # Meeting start time in seconds from midnight
+  endTime: BigInt! # Meeting end time in seconds from midnight
+  agenda: String! # Meeting agenda
+  meetLink: String! # Meeting link
+  isCancelled: Boolean! # Meeting cancellation status
+  participants: [Bytes!]! # Array of participant addresses
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
