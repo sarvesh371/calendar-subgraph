@@ -100,4 +100,3 @@ $ npm install
 ```
 3. [Change/Write your subgraph](https://thegraph.com/docs/en/quick-start/#4-write-your-subgraph)
 4. [Deploy the Subgraph](https://thegraph.com/docs/en/quick-start/#5-deploy-your-subgraph)
-$ npx hardhat run scripts/deploy.js --network baseSepolia
